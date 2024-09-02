@@ -15,9 +15,3 @@ This is a task manager application where users and admins can manage tasks. User
 - **package.json**: Lists project dependencies and scripts.
 - **server.js**: Entry point for the backend server.
 
-## Setup and Installation
-
-1. **Clone the Repository**
-   ```bash
-   git clone <repository-url>
-   cd task-manager-app
