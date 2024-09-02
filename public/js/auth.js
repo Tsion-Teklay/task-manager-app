@@ -47,7 +47,6 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
 
         const data = await response.json();
         if (response.ok) {
-            // Store the token in localStorage or a cookie
             localStorage.setItem('token', data.token);
             alert('Login successful!');
             const role = data.role;

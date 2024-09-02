@@ -44,20 +44,16 @@ exports.updateTask = async (req, res) => {
         const { id } = req.params;
         const { title, description, priority } = req.body;
 
-        // Find the task by ID
         const task = await Task.findById(id);
 
-        // Check if task exists
         if (!task) {
             return res.status(404).json({ error: 'Task not found' });
         }
 
-        // Check if the user is authorized (either task owner or admin)
         if (task.userId.toString() !== req.user.userId && req.user.role !== 'admin') {
             return res.status(403).json({ error: 'Not authorized to update this task' });
         }
 
-        // Update the task
         task.title = title || task.title;
         task.description = description || task.description;
         task.priority = priority || task.priority;
@@ -76,15 +72,12 @@ exports.deleteTask = async (req, res) => {
     try {
         const { id } = req.params;
 
-        // Find the task by ID
         const task = await Task.findById(id);
 
-        // Check if task exists
         if (!task) {
             return res.status(404).json({ error: 'Task not found' });
         }
 
-        // Check if the user is authorized (either task owner or admin)
         if (task.userId.toString() !== req.user.userId && req.user.role !== 'admin') {
             return res.status(403).json({ error: 'Not authorized to delete this task' });
         }
