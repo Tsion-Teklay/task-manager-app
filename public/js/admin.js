@@ -15,7 +15,7 @@ async function loadAllTasks() {
             usersList.innerHTML = '';
             data.tasks.forEach(task => {
                 const div = document.createElement('div');
-                div.innerHTML = `<strong> user: </strong>${task.userId} <br> 
+                div.innerHTML = ` 
                 <strong> title: </strong>${task.title} <br>
                 <strong> description: </strong>${task.description}<br>
                 <strong> priority: </strong>${task.priority}`;

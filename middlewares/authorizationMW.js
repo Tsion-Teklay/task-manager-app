@@ -13,11 +13,8 @@ function authorize(requiredRole) {
         try {
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-            // Check if the required role is provided
             if (requiredRole) {
-                // If role is provided, check if the user's role matches
                 if (decoded.role !== requiredRole && decoded.role !== 'admin') {
-                    // Only send 'Forbidden' message for non-admin users
                     return res.status(403).json({ error: 'Forbidden: You do not have access' });
                 }
             }
